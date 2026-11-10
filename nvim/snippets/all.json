@@ -1,0 +1,19 @@
+{
+  "TODO": {
+    "prefix": "todo",
+    "body": ["TODO: $1"],
+    "description": "TODO comment"
+  },
+  "FIXME": {
+    "prefix": "fixme",
+    "body": ["FIXME: $1"],
+    "description": "FIXME comment"
+  },
+  "NOTE": {
+    "prefix": "nt",
+    "body": [
+      "# ${1:Title}",
+      "$0"
+    ]
+  }
+}
