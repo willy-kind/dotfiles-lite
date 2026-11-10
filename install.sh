@@ -99,6 +99,14 @@ ensure_path() {
   done
 }
 
+# Debian/Ubuntu's default .bashrc sources ~/.bash_aliases; Fedora's doesn't
+ensure_bash_aliases() {
+  local rc="$HOME/.bashrc"
+  [ -f "$rc" ] || return 0
+  grep -q '\.bash_aliases' "$rc" ||
+    printf '\n# dotfiles-lite: aliases\n[ -f ~/.bash_aliases ] && . ~/.bash_aliases\n' >>"$rc"
+}
+
 install_tpm() {
   local tpm="$HOME/.tmux/plugins/tpm"
   if [ ! -d "$tpm" ]; then
@@ -132,6 +140,8 @@ main() {
 
   link nvim "$HOME/.config/nvim"
   link tmux/tmux.conf "$HOME/.tmux.conf"
+  link bash/aliases.sh "$HOME/.bash_aliases"
+  ensure_bash_aliases
 
   install_tpm
   install_nvim_plugins

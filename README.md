@@ -7,6 +7,7 @@ Minimal dotfiles for WSL and DevPod: **LazyVim** + **tmux** (with TPM).
 ```
 nvim/            -> ~/.config/nvim   (LazyVim, plugins pinned in lazy-lock.json)
 tmux/tmux.conf   -> ~/.tmux.conf     (plugins via TPM in ~/.tmux/plugins)
+bash/aliases.sh  -> ~/.bash_aliases  (sourced from ~/.bashrc)
 install.sh       symlinks everything, installs nvim/TPM/plugins
 ```
 
