@@ -31,9 +31,12 @@ link() {
   log "linked $dst -> $src"
 }
 
+# Root runs directly; passwordless sudo (DevPod) runs silently; on an
+# interactive terminal (WSL) sudo may prompt for the password.
 sudo_cmd() {
   if [ "$(id -u)" -eq 0 ]; then "$@"
   elif have sudo && sudo -n true 2>/dev/null; then sudo "$@"
+  elif have sudo && [ -t 0 ]; then sudo "$@"
   else return 1; fi
 }
 
