@@ -17,7 +17,7 @@ install.sh       symlinks everything, installs nvim/TPM/plugins
 DevPod clones the repo and runs `install.sh` automatically:
 
 ```sh
-devpod up <workspace> --dotfiles git@github.com:willy-kind/dotfiles-lite.git
+devpod up <workspace> --dotfiles https://github.com/willy-kind/dotfiles-lite
 # or set it once for all workspaces:
 devpod context set-options -o DOTFILES_URL=https://github.com/willy-kind/dotfiles-lite
 ```
@@ -45,3 +45,5 @@ release is installed to `~/.local/nvim` and linked into `~/.local/bin`.
 
 - **nvim plugins:** `:Lazy` to update; commit `nvim/lazy-lock.json` to pin versions.
 - **tmux plugins:** `prefix + I` install, `prefix + U` update, `prefix + r` reload config.
+- **commit hook:** the Nix dev shell enables it automatically; without nix run
+  `git config core.hooksPath .githooks` once (enforces Conventional Commits).

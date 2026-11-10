@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Dotfiles installer for WSL and DevPod.
-# DevPod runs this automatically:  devpod up <repo> --dotfiles git@github.com:willy-kind/dotfiles-lite.git
+# DevPod runs this automatically:  devpod up <repo> --dotfiles https://github.com/willy-kind/dotfiles-lite
 # WSL: clone the repo and run ./install.sh
 #
 # Env flags:
@@ -65,6 +65,10 @@ install_nvim() {
     v="$(nvim --version | head -1 | sed -E 's/^NVIM v([0-9.]+).*/\1/')"
     version_ge "$v" "$NVIM_MIN" && { log "nvim $v ok"; return; }
     warn "nvim $v is older than $NVIM_MIN, installing newer one to ~/.local"
+  fi
+  if have apk; then
+    warn "official nvim builds need glibc; on Alpine run: apk add neovim"
+    return
   fi
   local arch
   case "$(uname -m)" in

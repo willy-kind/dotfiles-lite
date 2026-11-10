@@ -1,1 +1,15 @@
-.direnv
+# direnv / nix
+.direnv/
+result
+result-*
+
+# editor / OS junk
+*.swp
+*.swo
+*~
+.DS_Store
+tags
+
+# nvim LSP/tool state that can appear in the config dir
+nvim/.luarc.json
+nvim/.neoconf.json
