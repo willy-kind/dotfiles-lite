@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Dotfiles installer for WSL and DevPod.
-# DevPod runs this automatically:  devpod up <repo> --dotfiles git@github.com:<you>/dotfiles-lite.git
+# DevPod runs this automatically:  devpod up <repo> --dotfiles git@github.com:willy-kind/dotfiles-lite.git
 # WSL: clone the repo and run ./install.sh
 #
 # Env flags:

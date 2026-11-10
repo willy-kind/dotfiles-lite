@@ -17,15 +17,15 @@ install.sh       symlinks everything, installs nvim/TPM/plugins
 DevPod clones the repo and runs `install.sh` automatically:
 
 ```sh
-devpod up <workspace> --dotfiles git@github.com:<you>/dotfiles-lite.git
+devpod up <workspace> --dotfiles git@github.com:willy-kind/dotfiles-lite.git
 # or set it once for all workspaces:
-devpod context set-options -o DOTFILES_URL=https://github.com/<you>/dotfiles-lite
+devpod context set-options -o DOTFILES_URL=https://github.com/willy-kind/dotfiles-lite
 ```
 
 ### WSL
 
 ```sh
-git clone git@github.com:<you>/dotfiles-lite.git ~/repos/dotfiles-lite
+git clone git@github.com:willy-kind/dotfiles-lite.git ~/repos/dotfiles-lite
 ~/repos/dotfiles-lite/install.sh
 ```
 
